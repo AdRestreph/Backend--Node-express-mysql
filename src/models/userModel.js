@@ -1,6 +1,6 @@
-// user.model.js
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
+import Rol from "./rolModel.js";
 
 const User = sequelize.define(
   "usuario",
@@ -35,14 +35,18 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    ROL: {
+    ID_ROL: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
+      references: {
+        model: Rol,
+        key: "ID_ROL",
+      },
     },
   },
-  {
-    // Opciones adicionales si es necesario
-  }
+  {}
 );
+
+User.belongsTo(Rol, { foreignKey: "ID_ROL", as: "rol" });
 
 export default User;

@@ -1,11 +1,7 @@
-// sequelize.config.js
-
 export const development = {
-  username: "Administrator",
-  password: "generalshop12345",
+  username: "root",
+  password: "toor",
   database: "generalshop",
-  host: "localhost",
+  host: "127.0.0.1",
   dialect: "mysql",
 };
-
-// Puedes agregar configuraciones para otros entornos como producción, prueba, etc.

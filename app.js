@@ -1,13 +1,11 @@
-// app.js
 import express from "express";
 import jsonParserMiddleware from "./src/middlewares/jsonParserMiddleware.js";
 import authRoutes from "./src/routes/authRoutes.js";
-import sequelize from "./src/config/sequelize.js"; // Ruta correcta a tu archivo de configuración Sequelize
-import User from "./src/models/userModel.js"; // Ruta correcta a tu modelo de usuario
+import sequelize from "./src/config/sequelize.js";
+import User from "./src/models/userModel.js";
 
 const app = express();
 
-// Middleware para parsear el cuerpo de la solicitud como JSON
 app.use(jsonParserMiddleware);
 
 // Rutas
