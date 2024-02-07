@@ -8,7 +8,7 @@ const getProducto = async (req, res) => {
     const data = producto ? producto : "NOT_FOUND";
     res.send(data);
   } catch (error) {
-    handleHttp(res, "ERROR_GET_PRODUCTO");
+    handleHttp(res, "ERROR_GET_PRODUCT");
   }
 };
 
@@ -17,7 +17,7 @@ const getProductos = async (req, res) => {
     const productos = await getProductos();
     res.send(productos);
   } catch (error) {
-    handleHttp(res, "ERROR_GET_PRODUCTOS");
+    handleHttp(res, "ERROR_GET_PRODUCTS");
   }
 };
 
@@ -28,7 +28,7 @@ const updateProducto = async (req, res) => {
     const updatedProducto = await updateProducto(id, newData);
     res.send(updatedProducto);
   } catch (error) {
-    handleHttp(res, "ERROR_UPDATE_PRODUCTO");
+    handleHttp(res, "ERROR_UPDATE_PRODUCT");
   }
 };
 
@@ -38,7 +38,7 @@ const insertProducto = async (req, res) => {
     const newProducto = await insertProducto(productoData);
     res.send(newProducto);
   } catch (error) {
-    handleHttp(res, "ERROR_INSERT_PRODUCTO");
+    handleHttp(res, "ERROR_INSERT_PRODUCT");
   }
 };
 
@@ -48,7 +48,7 @@ const deleteProducto = async (req, res) => {
     const deletedProducto = await deleteProducto(id);
     res.send(deletedProducto);
   } catch (error) {
-    handleHttp(res, "ERROR_DELETE_PRODUCTO");
+    handleHttp(res, "ERROR_DELETE_PRODUCT");
   }
 };
 
