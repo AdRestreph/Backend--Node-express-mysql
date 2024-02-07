@@ -1,5 +1,5 @@
 import UserModel from "../models/userModel.js";
-import RolModel from "../models/rolModel.js"; // Importa el modelo de roles
+import RolModel from "../models/rolModel.js";
 import { encrypt, verified } from "../utils/bcrypt.handle.js";
 
 const registerNewUser = async ({
@@ -12,7 +12,6 @@ const registerNewUser = async ({
   ID_ROL,
 }) => {
   try {
-    // Verifica si ya existe un usuario con el mismo correo electrónico
     const checkIs = await UserModel.findOne({ where: { CORREO } });
     if (checkIs) {
       return { error: "ALREADY_USER" };
