@@ -1,5 +1,9 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
+import Color from "./colorModel.js"
+import Marca from "./marcaModel.js"
+import Seccion from "./seccionModel.js"
+import Talla from "./tallaModel.js"
 
 const Producto = sequelize.define(
   "producto",
@@ -34,7 +38,7 @@ const Producto = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'seccion',
+        model: Seccion,
         key: 'ID_SECCION',
       },
     },
@@ -42,7 +46,7 @@ const Producto = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'marca',
+        model: Marca,
         key: 'ID_MARCA',
       },
     },
@@ -50,7 +54,7 @@ const Producto = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'color',
+        model: Color,
         key: 'ID_COLOR',
       },
     },
@@ -58,7 +62,7 @@ const Producto = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'talla',
+        model: Talla,
         key: 'ID_TALLA',
       },
     },
