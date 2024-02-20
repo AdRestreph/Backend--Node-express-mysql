@@ -50,3 +50,4 @@ const User = sequelize.define(
 User.belongsTo(Rol, { foreignKey: "ID_ROL", as: "rol" });
 
 export default User;
+

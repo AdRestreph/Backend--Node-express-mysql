@@ -1,5 +1,4 @@
-import { insertProducto, getProductos, getProductoById, updateProducto, deleteProducto } from "../services/product.services.js";
-
+import { insertProducto as insertProduct, getProductos as getProducts, getProductoById, updateProducto as updateProduct, deleteProducto as deleteProduct } from "../services/product.services.js";
 
 const getProducto = async (req, res) => {
   try {
@@ -14,7 +13,7 @@ const getProducto = async (req, res) => {
 
 const getProductos = async (req, res) => {
   try {
-    const productos = await getProductos();
+    const productos = await getProducts();
     res.send(productos);
   } catch (error) {
     handleHttp(res, "ERROR_GET_PRODUCTS");
@@ -25,7 +24,7 @@ const updateProducto = async (req, res) => {
   try {
     const { id } = req.params;
     const newData = req.body;
-    const updatedProducto = await updateProducto(id, newData);
+    const updatedProducto = await updateProduct(id, newData);
     res.send(updatedProducto);
   } catch (error) {
     handleHttp(res, "ERROR_UPDATE_PRODUCT");
@@ -35,7 +34,7 @@ const updateProducto = async (req, res) => {
 const insertProducto = async (req, res) => {
   try {
     const productoData = req.body;
-    const newProducto = await insertProducto(productoData);
+    const newProducto = await insertProduct(productoData);
     res.send(newProducto);
   } catch (error) {
     handleHttp(res, "ERROR_INSERT_PRODUCT");
@@ -45,7 +44,7 @@ const insertProducto = async (req, res) => {
 const deleteProducto = async (req, res) => {
   try {
     const { id } = req.params;
-    const deletedProducto = await deleteProducto(id);
+    const deletedProducto = await deleteProduct(id);
     res.send(deletedProducto);
   } catch (error) {
     handleHttp(res, "ERROR_DELETE_PRODUCT");
@@ -53,4 +52,3 @@ const deleteProducto = async (req, res) => {
 };
 
 export { getProducto, getProductos, updateProducto, insertProducto, deleteProducto };
-
